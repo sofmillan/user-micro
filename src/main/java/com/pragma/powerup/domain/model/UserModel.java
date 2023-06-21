@@ -13,17 +13,6 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(Long id, String dni, String name,
-                     String lastName, String phoneNumber, String email, String password, Long role) {
-        this.id = id;
-        this.dni = dni;
-        this.name = name;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
 
     public Long getId() {
         return id;
@@ -89,17 +78,4 @@ public class UserModel {
         this.role = roleModel;
     }
 
-    @Override
-    public String toString() {
-        return "UserModel{" +
-                "id=" + id +
-                ", dni=" + dni +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                '}';
-    }
 }

@@ -26,12 +26,4 @@ public class RoleEntity {
     @Column(name = "role_description")
     private String description;
 
-    @Override
-    public String toString() {
-        return "RoleEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

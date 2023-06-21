@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class UserDtoTest {
+class UserDtoTest {
 
     private static Validator validator;
 
