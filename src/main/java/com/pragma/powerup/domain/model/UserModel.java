@@ -13,7 +13,6 @@ public class UserModel {
     public UserModel() {
     }
 
-
     public Long getId() {
         return id;
     }
