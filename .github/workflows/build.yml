@@ -5,22 +5,24 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  USERNAME: ${{ secrets.USERNAME }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+  AWS_REGION: 'us-east-2'
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_ECR_REPO_NAME: 'user-registry'
+  AWS_ECR_REPO_LINK: '378462941125.dkr.ecr.us-east-2.amazonaws.com/user-registry'
+  AWS_ECR_REPO_PATH: '378462941125.dkr.ecr.us-east-2.amazonaws.com'
+  AWS_EB_ENVIRONMENT: 'User-app-env'
+  AWS_EB_APPLICATION: 'user-app'
+
 jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      USERNAME: ${{ secrets.USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
-      AWS_REGION: 'us-east-2'
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_ECR_REPO_NAME: 'user-registry'
-      AWS_ECR_REPO_LINK: '378462941125.dkr.ecr.us-east-2.amazonaws.com/user-registry'
-      AWS_ECR_REPO_PATH: '378462941125.dkr.ecr.us-east-2.amazonaws.com'
-      AWS_EB_ENVIRONMENT: 'User-app-env'
-      AWS_EB_APPLICATION: 'user-app'
     steps:
       - uses: actions/checkout@v3
         with:
