@@ -106,3 +106,9 @@ jobs:
           version_label: 'user-source'
           region: ${{ env.AWS_REGION }}
           use_existing_version_if_available: true
+      - name: Message
+        if: always() && steps.deploy.outcome == 'failure'
+        uses: teknatha136/actions-google-chat-text-message@main
+        with:
+            google-chat-webhook: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+            text-message: Deploy failure. Environment ${{  env.AWS_EB_ENVIRONMENT  }}
