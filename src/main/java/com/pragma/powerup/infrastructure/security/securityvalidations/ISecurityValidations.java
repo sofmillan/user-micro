@@ -1,6 +1,5 @@
 package com.pragma.powerup.infrastructure.security.securityvalidations;
 
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 

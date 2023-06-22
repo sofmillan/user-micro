@@ -23,7 +23,6 @@ public class SecurityValidations implements ISecurityValidations{
         if(psw==null){
             return Collections.emptyList();
         }
-        System.out.println(psw.getAuthorities().stream().map(rol-> rol.getAuthority()).collect(Collectors.toList()));
         return psw.getAuthorities().stream().map(rol-> rol.getAuthority()).collect(Collectors.toList());
     }
 
@@ -36,7 +35,7 @@ public class SecurityValidations implements ISecurityValidations{
         }
         String email = (String) psw.getPrincipal();
         UserEntity user = userRepository.findByEmail(email)
-                .orElseThrow(()-> new DataNotFoundException());
+                .orElseThrow(DataNotFoundException::new);
         List<String> list = psw.getAuthorities().stream()
                 .map(rol-> rol.getAuthority()).collect(Collectors.toList());
         if(list.contains("ROLE_OWNER")){
@@ -54,7 +53,7 @@ public class SecurityValidations implements ISecurityValidations{
         }
         String email = (String) psw.getPrincipal();
         UserEntity user = userRepository.findByEmail(email)
-                .orElseThrow(()-> new DataNotFoundException());
+                .orElseThrow(DataNotFoundException::new);
         List<String> list = psw.getAuthorities().stream()
                 .map(rol-> rol.getAuthority()).collect(Collectors.toList());
         if(list.contains("ROLE_CLIENT")){
@@ -72,7 +71,7 @@ public class SecurityValidations implements ISecurityValidations{
         }
         String email = (String) psw.getPrincipal();
         UserEntity user = userRepository.findByEmail(email)
-                .orElseThrow(()-> new DataNotFoundException());
+                .orElseThrow(DataNotFoundException::new);
         List<String> list = psw.getAuthorities().stream()
                 .map(rol-> rol.getAuthority()).collect(Collectors.toList());
         if(list.contains("ROLE_EMPLOYEE")){

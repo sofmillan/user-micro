@@ -1,7 +1,6 @@
 package com.pragma.powerup.infrastructure.out.jpa.repository;
 
 import com.pragma.powerup.infrastructure.out.jpa.entity.UserEntity;
-import org.mapstruct.control.MappingControl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

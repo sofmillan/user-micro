@@ -12,10 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
-public class UserControllerTest {
+class UserControllerTest {
     IUserHandler userHandler;
     ISecurityValidations securityValidations;
     UserController userController;
@@ -80,6 +79,17 @@ public class UserControllerTest {
         ResponseEntity<Void> responseEntity = userController.saveClient(userRequestDto);
 
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+    }
+
+    @Test
+    void Should_ReturnString_When_ClientFound(){
+        Long userId = 1L;
+        String phoneNumber = "+578998323";
+        String expectedPhoneNumber = "+578998323";
+
+        when(userHandler.findPhoneById(userId)).thenReturn(phoneNumber);
+
+        assertEquals(expectedPhoneNumber, phoneNumber);
     }
 
 }

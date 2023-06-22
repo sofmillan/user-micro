@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class UserHandlerTest {
+class UserHandlerTest {
     IUserServicePort userService;
     IUserRequestMapper userRequestMapper;
     IUserHandler userHandler;
